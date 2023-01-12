@@ -88,8 +88,8 @@ fn main() -> Result<()> {
     let mut pw = PartialWitness::new();
     pw.set_target(x_pow_n, x_pow_n_value);
 
-    let data = builder.build::<C>()();
-    let proof = data.prove(pw.clone());
+    let data = builder.build::<C>();
+    let proof = data.prove(pw.clone())?;
 
     let x_pow_n_actual = proof.public_inputs[0];
     println!("Field element N-th power: {x_pow_n_actual}");
