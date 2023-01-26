@@ -15,7 +15,7 @@ use plonky2_field::extension::Extendable;
 /// so it can be used as an additional public input
 #[derive(Debug)]
 pub struct NthRootGenerator<F: RichField + Extendable<D>, const D: usize, const N: u64> {
-    x: Target,
+    x: Target, // x = x_pow_n^{1 / n}
     x_pow_n: Target,
     _phantom: PhantomData<F>,
 }
